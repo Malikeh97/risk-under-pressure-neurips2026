@@ -31,9 +31,9 @@
 
 ---
 
-## 2. Table R1 — `tab:cost_summary` with judge-excluded rows added
+## 2. Judge-excluded Costs
 
-The published **w/ judge** numbers are the original ones, unchanged. Each model gains one **w/o judge** row indicated after the arrow sign. ASR is not repeated on those rows: it is defined over attack steps, the trajectories are identical, and only the cost axis is rescaled.
+The published **w/ judge** numbers are the original ones, unchanged. **W/o judge** costs are indicated after the arrow sign. ASR is not repeated on those rows: it is defined over attack steps, the trajectories are identical, and only the cost axis is rescaled.
 
 
 ### Jailbreak Robustness Metrics on HarmBench
