@@ -35,59 +35,8 @@
 
 The published **w/ judge** numbers are the original ones, unchanged. Each model gains one **w/o judge** row carrying the two FLOP metrics on the target + attacker axis. ASR is not repeated on those rows: it is defined over attack steps, the trajectories are identical, and only the cost axis is rescaled.
 
-```latex
-\begin{table}[t]
-\caption{Jailbreak robustness metrics on HarmBench.
-\textbf{$C_{@0.5}$}: Compute to 50\% risk (avg.\ cumulative \tflops; $\infty$ = never reached).
-\textbf{AE}: Average efficiency ($\times10^{-3}$ risk/\tflops).
-\textbf{ASR}: Attack success rate at $\lambda{=}10$ steps.
-Each model reports two compute accountings: \textbf{w/ judge} charges the full evaluation pipeline
-(target + attacker + judge, our default axis), \textbf{w/o judge} charges target + attacker only.
-The judge is Llama-3.1-8B-Instruct (8.03B). ASR is identical under both accountings --- the attack
-trajectories are unchanged and only the cost axis is rescaled --- so it is reported once per model.
-$^{\dagger}$ estimated: the judge-excluded run for these two GCG cells does not cover the same
-prompt set, so the value is obtained by mapping the reported compute onto the measured
-target/judge FLOP composition of the same attack (see text).}
-\label{tab:cost_summary}
-\footnotesize
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{llcccccc|ccc}
-\toprule
-& & \multicolumn{3}{c}{$C_{@0.5}$ (\tflops) $\uparrow$ better} & \multicolumn{3}{c|}{AE ($\times10^{-3}$ risk/\tflops) $\downarrow$ better} & \multicolumn{3}{c}{ASR @ $\lambda{=}10$ $\downarrow$ better} \\
-\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}
-Model & Compute & GCG & PAIR & JB & GCG & PAIR & JB & GCG & PAIR & JB \\
-\midrule
-\multicolumn{11}{l}{\textit{Tulu3 (8B)}} \\
-~~Base  & w/ judge  & $59.3$ & $11.2$ & $9.2$ & $8.4$ & $39.0$ & $53.3$ & $1.00$ & $1.00$ & $1.00$ \\
-        & w/o judge & $55.7$ & $6.4$ & $3.8$ & $8.6$ & $68.4$ & $129.2$ & --- & --- & --- \\
-~~SFT   & w/ judge  & $\infty$ & $\infty$ & $52.4$ & $0.5$ & $3.5$ & $8.9$ & $0.31$ & $0.42$ & $0.50$ \\
-        & w/o judge & $\infty$ & $\infty$ & $13.3$ & $0.6$ & $6.4$ & $37.7$ & --- & --- & --- \\
-~~DPO   & w/ judge  & $521.2$ & $79.9$ & $40.9$ & $1.0$ & $6.0$ & $10.4$ & $0.52$ & $0.75$ & $0.67$ \\
-        & w/o judge & $462.7^{\dagger}$ & $39.3$ & $14.5$ & $1.1^{\dagger}$ & $11.5$ & $31.4$ & --- & --- & --- \\
-~~RLVR  & w/ judge  & $503.6$ & $72.4$ & $25.7$ & $1.0$ & $6.7$ & $18.9$ & $0.54$ & $0.79$ & $0.90$ \\
-        & w/o judge & $447.2$ & $42.7$ & $10.0$ & $1.2$ & $12.1$ & $48.1$ & --- & --- & --- \\
-\midrule
-\multicolumn{11}{l}{\textit{Qwen2.5 (Instruct)}} \\
-~~0.5B  & w/ judge  & $20.0$ & $15.5$ & $8.2$ & $25.6$ & $30.6$ & $59.6$ & $0.99$ & $0.99$ & $0.99$ \\
-        & w/o judge & $8.5$ & $6.1$ & $0.3$ & $58.7$ & $74.3$ & $1677.8$ & --- & --- & --- \\
-~~3B    & w/ judge  & $173.7$ & $33.9$ & $13.4$ & $3.3$ & $15.9$ & $36.8$ & $0.81$ & $0.97$ & $0.98$ \\
-        & w/o judge & $146.5$ & $16.5$ & $2.5$ & $3.9$ & $33.6$ & $217.8$ & --- & --- & --- \\
-~~7B    & w/ judge  & $399.7$ & $38.9$ & $22.8$ & $1.3$ & $13.6$ & $23.0$ & $0.73$ & $0.97$ & $0.94$ \\
-        & w/o judge & $337.5$ & $22.5$ & $6.7$ & $1.5$ & $21.8$ & $76.8$ & --- & --- & --- \\
-\midrule
-\multicolumn{11}{l}{\textit{Qwen3}} \\
-~~4B    & w/ judge  & $\infty$ & $31.3$ & $21.2$ & $0.9$ & $16.6$ & $22.1$ & $0.36$ & $0.98$ & $0.86$ \\
-        & w/o judge & $\infty$ & $15.5$ & $4.6$ & $1.0$ & $33.4$ & $105.7$ & --- & --- & --- \\
-~~4B-SafeRL & w/ judge  & $189.0$ & $44.8$ & $24.5$ & $2.1$ & $7.6$ & $16.0$ & $0.67$ & $0.75$ & $0.83$ \\
-            & w/o judge & $156.8^{\dagger}$ & $21.5$ & $6.4$ & $2.5^{\dagger}$ & $16.0$ & $67.4$ & --- & --- & --- \\
-\bottomrule
-\end{tabular}%
-}
-\end{table}
-```
 
-### Same numbers as plain markdown (for drafting)
+### Jailbreak Robustness Metrics on HarmBench
 
 | Model | Compute | C@0.5 GCG | C@0.5 PAIR | C@0.5 JB | AE GCG | AE PAIR | AE JB | ASR GCG | ASR PAIR | ASR JB |
 |---|---|---|---|---|---|---|---|---|---|---|
