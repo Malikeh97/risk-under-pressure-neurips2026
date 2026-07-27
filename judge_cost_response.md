@@ -62,7 +62,7 @@ Llama-3.1-8B-Instruct):
 | GCG | 8.6% – 56.6% | 11.4% | no (evaluation only) |
 | PAIR | 40.2% – 58.4% | 43.1% | **yes** (score drives refinement) |
 | Jailbroken | 59.4% – 96.4% | 74.2% | no (evaluation only) |
-| RL (ours) | 35.3% – 63.7% | 48.6% | **yes** (judge = reward) |
+
 
 **Rank stability** (with-judge vs. no-judge orderings over the 9 targets):
 
