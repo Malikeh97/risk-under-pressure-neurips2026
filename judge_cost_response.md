@@ -19,13 +19,11 @@
 > the end-to-end pipeline (target + attacker + judge), i.e. the cost of reproducing the
 > measurement; (iii) *adversary*: target queries plus their own
 > attacker model, and, for attacks whose next step is chosen automatically from a judge signal
-> (PAIR's refinement, RL attacker's reward, etc.), the judge as well. The judge is therefore a real
-> adversary-side cost for in-the-loop attacks, and a pure evaluation overhead for GCG and
-> Jailbroken. 
+> (PAIR's refinement, RL attacker's reward, etc.), the judge as well. In fully automated decision-making, even Jailbroken needs a judge model to get the signal whether to try new templates or not
 >
 > To isolate the judge-size effect we now report every FLOP metric on a **judge-excluded** axis
-> (target + attacker only) alongside the default. Removing an 8B judge — larger than or equal to
-> the target in 6 of 9 models — rescales the cost axis but leaves every conclusion intact:
+> (target + attacker only) alongside the default. Removing an 8B judge, which is larger than or equal to
+> the target in 6 of 9 models, rescales the cost axis but leaves every conclusion intact:
 > per-attack Spearman ρ between judge-included and judge-excluded rankings is 0.92–1.00
 > (pooled ρ = 0.97 for AE, 0.95 for C@0.5). Table R1 reports both.
 
