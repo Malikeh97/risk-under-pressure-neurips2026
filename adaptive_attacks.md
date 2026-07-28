@@ -6,7 +6,7 @@ We would first note that the three attacks in the paper are not static jailbreak
 Under the taxonomy of Nasr et al., *"The Attacker Moves Second: Stronger Adaptive Attacks
 Bypass Defenses Against LLM Jailbreaks and Prompt Injections"* (arXiv:2510.09023), an
 adaptive attack is one in which the attacker observes the target/defense and modifies its
-strategy against it, rather than replaying a fixed prompt — and the attack families they
+strategy against it, rather than replaying a fixed prompt and the attack families they
 study as adaptive are precisely gradient-based optimization (GCG), LLM-assisted iterative
 refinement, and human red-teaming. Both GCG and PAIR in our setup are run per-target
 and per-behavior with no train/test split: GCG optimizes a suffix against the target's own
@@ -109,14 +109,14 @@ agree cell-by-cell to within roughly 10%, so neither conclusion is a benchmark a
 
 **RL's margin scales with how robust the target is.** Against the weakest model
 (Qwen2.5-0.5B) the cheap static Jailbroken suite is actually competitive with RL
-($C_{@0.5}$ 8.2 vs 9.3 on HarmBench) — there is nothing for an adaptive attacker to earn.
+($C_{@0.5}$ 8.2 vs 9.3 on HarmBench). There is nothing for an adaptive attacker to earn.
 The gap opens as the target gets harder: RL beats JB by 24% on Qwen3-4B (16.1 vs 21.2) and
 by 34% on Tulu3-SFT (34.5 vs 52.4). Adaptivity buys the attacker the most exactly where
 defenses are working, which is the regime a robustness metric has to measure well.
 
 **One notable exception, and a caveat.** Qwen3-4B-SafeRL's safety training measurably helps
 against the prompt-level attacks. It raises PAIR's cost-to-50% by ~57% relative to plain
-Qwen3-4B on JailbreakBench (59.1 vs 37.6) and JB's by ~21% (29.4 vs 24.2) — but that
+Qwen3-4B on JailbreakBench (59.1 vs 37.6) and JB's by ~21% (29.4 vs 24.2), but that
 advantage does not carry over to an attacker that itself optimizes with RL, where SafeRL is
 marginally *easier* to break than the un-hardened 4B (16.5 vs 18.7 on JailbreakBench; 14.3
 vs 16.1 on HarmBench). We flag this as suggestive rather than established: the RL column is
