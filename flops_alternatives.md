@@ -78,8 +78,7 @@ Across the 32 finite $C_{@0.5}$ cells the Spearman rank correlations are 0.84 (F
 seconds), 0.88 (FLOPs vs. USD) and 0.92 (seconds vs. USD), and every headline claim survives
 the change of unit: RL is the cheapest attack on all three axes for 6/9 models (and on the
 seconds axis for 9/9), the Qwen2.5 size trend stays monotone in all three units (RL:
-10.9/16.4/22.6 TFLOPs, 7.0/22.6/23.0 s, 0.018/0.035/0.064 m$), and Tulu3-SFT remains the only
-model that no non-RL attack breaks. Two things do move:
+10.9/16.4/22.6 TFLOPs, 7.0/22.6/23.0 s, 0.018/0.035/0.064 m$). Two things do move:
 
 - **GCG.** It costs 8.6× RL in FLOPs and 8.9× in hosted dollars but only **2.6×** in
   wall-clock, and it is effectively tied with PAIR in seconds (115 vs. 106 s) despite 4.8×
